@@ -22,4 +22,18 @@ class ConcertFactory extends Factory
             'date' => Carbon::parse('+2 weeks')
         ];
     }
+
+    /**
+     * Published concert
+     *
+     * @return Factory
+     */
+    public function published()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published_at' => Carbon::parse('-1 week')
+            ];
+        });
+    }
 }
